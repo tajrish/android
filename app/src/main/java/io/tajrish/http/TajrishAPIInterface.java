@@ -2,7 +2,6 @@ package io.tajrish.http;
 
 import java.util.List;
 
-import app.candidate.models.BlogItem;
 import retrofit.Callback;
 import retrofit.http.POST;
 import retrofit.http.Path;
@@ -12,8 +11,10 @@ import retrofit.http.Path;
  */
 public interface TajrishAPIInterface {
 
+    /*
     @POST("/blog/users/{user_id}")
     void getBlog(@Path("user_id") String userId, Callback<List<BlogItem>> blogItemCallback);
+    */
 
     /*@FormUrlEncoded
     @POST("/users")
