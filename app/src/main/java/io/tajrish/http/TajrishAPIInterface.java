@@ -2,8 +2,9 @@ package io.tajrish.http;
 
 import java.util.List;
 
-import app.candidate.models.BlogItem;
+import io.tajrish.models.HomeScreenModel;
 import retrofit.Callback;
+import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Path;
 
@@ -12,8 +13,11 @@ import retrofit.http.Path;
  */
 public interface TajrishAPIInterface {
 
-    @POST("/blog/users/{user_id}")
-    void getBlog(@Path("user_id") String userId, Callback<List<BlogItem>> blogItemCallback);
+    @GET("/users/{user_id}/provinces")
+    void getProvinces(@Path("user_id") String userId, Callback<HomeScreenModel> homeScreenModelCallback);
+
+    /*@POST("/blog/users/{user_id}")
+    void getBlog(@Path("user_id") String userId, Callback<List<BlogItem>> blogItemCallback);*/
 
     /*@FormUrlEncoded
     @POST("/users")
