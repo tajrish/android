@@ -23,6 +23,7 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
 
         find();
+        configure();
     }
 
     private void find() {
