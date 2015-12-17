@@ -9,7 +9,7 @@ public class HomeScreenModel {
 
     @SerializedName("active")
     private int activeProvince;
-    private ChallengeModel challenge;
+    private Challenge challenge;
     private ProvinceModel province;
 
     public int getActiveProvince() {
@@ -20,11 +20,11 @@ public class HomeScreenModel {
         this.activeProvince = activeProvince;
     }
 
-    public ChallengeModel getChallenge() {
+    public Challenge getChallenge() {
         return challenge;
     }
 
-    public void setChallenge(ChallengeModel challenge) {
+    public void setChallenge(Challenge challenge) {
         this.challenge = challenge;
     }
 

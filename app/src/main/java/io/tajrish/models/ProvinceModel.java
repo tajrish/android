@@ -127,22 +127,22 @@ public class ProvinceModel {
 
                 pin1.setId(1);
                 pin1.setTitle("آتشگاه اصفهان");
-                pin1.setCategory(CategoryModel.getCategoryList().get(6));
+                pin1.setCategory(Category.getCategoryList().get(6));
                 pin2.setId(2);
                 pin2.setTitle("آرامگاه الراشد بالله");
-                pin2.setCategory(CategoryModel.getCategoryList().get(6));
+                pin2.setCategory(Category.getCategoryList().get(6));
                 pin3.setId(3);
                 pin3.setTitle("آرامگاه پیربکران");
-                pin3.setCategory(CategoryModel.getCategoryList().get(6));
+                pin3.setCategory(Category.getCategoryList().get(6));
                 pin4.setId(4);
                 pin4.setTitle("آتشگاه اصفهان");
-                pin4.setCategory(CategoryModel.getCategoryList().get(6));
+                pin4.setCategory(Category.getCategoryList().get(6));
                 pin5.setId(5);
                 pin5.setTitle("آرامگاه سلطان بخت آقا");
-                pin5.setCategory(CategoryModel.getCategoryList().get(6));
+                pin5.setCategory(Category.getCategoryList().get(6));
                 pin6.setId(6);
                 pin6.setTitle("سی و سه پل");
-                pin6.setCategory(CategoryModel.getCategoryList().get(6));
+                pin6.setCategory(Category.getCategoryList().get(6));
 
                 pinList.add(pin1);
                 pinList.add(pin2);
