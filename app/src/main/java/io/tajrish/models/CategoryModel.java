@@ -78,5 +78,15 @@ public class CategoryModel {
         category8.setId(8);
         category9.setTitle("زیارتی");
         category9.setId(9);
+
+        categoryList.add(category1);
+        categoryList.add(category2);
+        categoryList.add(category3);
+        categoryList.add(category4);
+        categoryList.add(category5);
+        categoryList.add(category6);
+        categoryList.add(category7);
+        categoryList.add(category8);
+        categoryList.add(category9);
     }
 }
