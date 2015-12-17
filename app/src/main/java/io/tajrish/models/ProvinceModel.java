@@ -144,6 +144,13 @@ public class ProvinceModel {
                 pin6.setTitle("سی و سه پل");
                 pin6.setCategory(CategoryModel.getCategoryList().get(6));
 
+                pinList.add(pin1);
+                pinList.add(pin2);
+                pinList.add(pin3);
+                pinList.add(pin4);
+                pinList.add(pin5);
+                pinList.add(pin6);
+
                 break;
             case 2:
                 break;
@@ -169,16 +176,22 @@ public class ProvinceModel {
         ProvinceModel province6 = new ProvinceModel();
 
         province1.setTitle("اصفهان");
+        province1.setId(1);
         province1.setIconResourceId(R.drawable.province1);
         province2.setTitle("مشهد");
+        province1.setId(2);
         province2.setIconResourceId(R.drawable.province2);
         province3.setTitle("تهران");
+        province1.setId(3);
         province3.setIconResourceId(R.drawable.province3);
         province4.setTitle("خوزستان");
+        province1.setId(4);
         province4.setIconResourceId(R.drawable.province4);
         province5.setTitle("فارس");
+        province1.setId(5);
         province5.setIconResourceId(R.drawable.province5);
         province6.setTitle("همدان");
+        province1.setId(6);
         province6.setIconResourceId(R.drawable.province6);
 
         provinceList.add(province1);
