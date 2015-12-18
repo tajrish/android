@@ -10,7 +10,7 @@ import io.tajrish.R;
 /**
  * Created by root on 12/17/15.
  */
-public class ProvinceModel {
+public class Province {
 
     public int getId() {
         return id;
@@ -23,10 +23,28 @@ public class ProvinceModel {
     private int id;
     private String title;
     private int iconResourceId;
-    private List<PinModel> pinList;
-    private static List<ProvinceModel> provinceList;
+    private List<Pin> pinList;
+    private static List<Province> provinceList;
     private String tips;
     private int numberOfVisitors;
+    private double latitude;
+    private double longitude;
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 
     @SerializedName("is_done")
     private boolean isDone;
@@ -35,7 +53,7 @@ public class ProvinceModel {
     private int rate;
 
 
-    public List<PinModel> getPinList() {
+    public List<Pin> getPinList() {
 
         if (pinList == null) {
             initializePinList();
@@ -44,7 +62,7 @@ public class ProvinceModel {
         return pinList;
     }
 
-    public static List<ProvinceModel> getProvinceList() {
+    public static List<Province> getProvinceList() {
 
         if (provinceList == null) {
             initializeProvinceList();
@@ -53,7 +71,7 @@ public class ProvinceModel {
         return provinceList;
     }
 
-    public void setPinList(List<PinModel> pinList) {
+    public void setPinList(List<Pin> pinList) {
         this.pinList = pinList;
     }
 
@@ -118,31 +136,43 @@ public class ProvinceModel {
 
         switch (id){
             case 1:
-                PinModel pin1 = new PinModel();
-                PinModel pin2 = new PinModel();
-                PinModel pin3 = new PinModel();
-                PinModel pin4 = new PinModel();
-                PinModel pin5 = new PinModel();
-                PinModel pin6 = new PinModel();
+                Pin pin1 = new Pin();
+                Pin pin2 = new Pin();
+                Pin pin3 = new Pin();
+                Pin pin4 = new Pin();
+                Pin pin5 = new Pin();
+                Pin pin6 = new Pin();
 
                 pin1.setId(1);
-                pin1.setTitle("آتشگاه اصفهان");
-                pin1.setCategory(CategoryModel.getCategoryList().get(6));
+                pin1.setTitle("میدان نقش جهان");
+                pin1.setCategory(Category.getCategoryList().get(6));
+                pin1.setLatitude(32.657299);
+                pin1.setLongitude(51.677587);
                 pin2.setId(2);
-                pin2.setTitle("آرامگاه الراشد بالله");
-                pin2.setCategory(CategoryModel.getCategoryList().get(6));
+                pin2.setTitle("عمارت عالي قاپ");
+                pin2.setCategory(Category.getCategoryList().get(6));
+                pin3.setLatitude(32.657229);
+                pin3.setLongitude(51.676662);
                 pin3.setId(3);
-                pin3.setTitle("آرامگاه پیربکران");
-                pin3.setCategory(CategoryModel.getCategoryList().get(6));
+                pin3.setTitle("بازار قيـصـريه اصفهان");
+                pin3.setCategory(Category.getCategoryList().get(6));
+                pin3.setLatitude(32.660248);
+                pin3.setLongitude(51.676852);
                 pin4.setId(4);
-                pin4.setTitle("آتشگاه اصفهان");
-                pin4.setCategory(CategoryModel.getCategoryList().get(6));
+                pin4.setTitle("چهل ستون");
+                pin4.setCategory(Category.getCategoryList().get(6));
+                pin4.setLatitude(32.657470);
+                pin4.setLongitude(51.671900);
                 pin5.setId(5);
-                pin5.setTitle("آرامگاه سلطان بخت آقا");
-                pin5.setCategory(CategoryModel.getCategoryList().get(6));
+                pin5.setTitle("منار جنبان");
+                pin5.setCategory(Category.getCategoryList().get(6));
+                pin5.setLatitude(32.650461);
+                pin5.setLongitude(51.594179);
                 pin6.setId(6);
                 pin6.setTitle("سی و سه پل");
-                pin6.setCategory(CategoryModel.getCategoryList().get(6));
+                pin6.setCategory(Category.getCategoryList().get(6));
+                pin6.setLatitude(32.644461);
+                pin6.setLongitude(51.667467);
 
                 pinList.add(pin1);
                 pinList.add(pin2);
@@ -168,31 +198,43 @@ public class ProvinceModel {
     private static void initializeProvinceList() {
         provinceList = new ArrayList<>();
 
-        ProvinceModel province1 = new ProvinceModel();
-        ProvinceModel province2 = new ProvinceModel();
-        ProvinceModel province3 = new ProvinceModel();
-        ProvinceModel province4 = new ProvinceModel();
-        ProvinceModel province5 = new ProvinceModel();
-        ProvinceModel province6 = new ProvinceModel();
+        Province province1 = new Province();
+        Province province2 = new Province();
+        Province province3 = new Province();
+        Province province4 = new Province();
+        Province province5 = new Province();
+        Province province6 = new Province();
 
         province1.setTitle("اصفهان");
         province1.setId(1);
         province1.setIconResourceId(R.drawable.province1);
+        province1.setLatitude(32.657810);
+        province1.setLongitude(51.677490);
         province2.setTitle("مشهد");
         province1.setId(2);
         province2.setIconResourceId(R.drawable.province2);
+        province1.setLatitude(36.288193);
+        province1.setLongitude(59.615740);
         province3.setTitle("تهران");
         province1.setId(3);
         province3.setIconResourceId(R.drawable.province3);
+        province1.setLatitude(35.745059);
+        province1.setLongitude(51.375364);
         province4.setTitle("خوزستان");
         province1.setId(4);
         province4.setIconResourceId(R.drawable.province4);
+        province1.setLatitude(32.190338);
+        province1.setLongitude(48.243608);
         province5.setTitle("فارس");
         province1.setId(5);
         province5.setIconResourceId(R.drawable.province5);
+        province1.setLatitude(29.625703);
+        province1.setLongitude(52.558397);
         province6.setTitle("همدان");
         province1.setId(6);
         province6.setIconResourceId(R.drawable.province6);
+        province1.setLatitude(34.801893);
+        province1.setLongitude(48.509692);
 
         provinceList.add(province1);
         provinceList.add(province2);

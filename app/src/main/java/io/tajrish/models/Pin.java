@@ -3,14 +3,14 @@ package io.tajrish.models;
 /**
  * Created by root on 12/17/15.
  */
-public class PinModel {
+public class Pin {
 
     private int id;
     private String title;
     private String description;
     private double longitude;
     private double latitude;
-    private CategoryModel category;
+    private Category category;
 
     public int getId() {
         return id;
@@ -52,11 +52,11 @@ public class PinModel {
         this.latitude = latitude;
     }
 
-    public CategoryModel getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(CategoryModel category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 }
