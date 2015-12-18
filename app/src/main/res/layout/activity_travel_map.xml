@@ -11,39 +11,54 @@
         android:layout_height="match_parent"
         tools:context=".MapsActivity" />
 
-    <ImageView
-        android:id="@+id/travel_backpack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-10dp"
-        android:layout_marginLeft="-10dp"
-        android:layout_gravity="bottom"
-        android:src="@drawable/backpack" />
-
-    <ImageView
-        android:id="@+id/travel_quests"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:src="@drawable/cup_bronze" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+    <!--content view-->
+    <FrameLayout
+        android:id="@+id/travel_expander"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"
         android:orientation="vertical">
-
-        <io.tajrish.views.custom.FFTextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="۳/۵" />
+            android:layout_marginLeft="-40dp"
+            android:scaleType="matrix"
+            android:src="@drawable/scraps"/>
+        <ImageView
+            android:id="@+id/travel_backpack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginLeft="-10dp"
+            android:src="@drawable/backpack" />
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="100dp"
-            android:layout_height="4dp"
-            android:progress="50" />
-    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/travel_quests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/cup_bronze" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="180dp"
+            android:orientation="vertical">
+
+            <io.tajrish.views.custom.FFTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="۳/۵" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="4dp"
+                android:progress="50" />
+        </LinearLayout>
+    </FrameLayout>
 </FrameLayout>
