@@ -8,5 +8,5 @@ public class Challenge {
     private int pinId;
     private String title;
     private String description;
-    private PinModel pin;
+    private Pin pin;
 }

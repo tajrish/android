@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by root on 12/17/15.
  */
-public class HomeScreenModel {
+public class HomeScreen {
 
     @SerializedName("active")
     private int activeProvince;
     private Challenge challenge;
-    private ProvinceModel province;
+    private Province province;
 
     public int getActiveProvince() {
         return activeProvince;
@@ -28,11 +28,11 @@ public class HomeScreenModel {
         this.challenge = challenge;
     }
 
-    public ProvinceModel getProvince() {
+    public Province getProvince() {
         return province;
     }
 
-    public void setProvince(ProvinceModel province) {
+    public void setProvince(Province province) {
         this.province = province;
     }
 }
