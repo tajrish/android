@@ -8,7 +8,8 @@ import android.widget.TextView;
  * Created by Sadjad on 9/18/2015.
  */
 public class FontHelper {
-
+    private static Typeface menu = null;
+    private static final String FONT_MENU_NAME = "icons.ttf";
     private static final String APP_DEFAULT_FONT_PATH = "IRAN Sans.ttf";
     private static final String APP_DEFAULT_FONT_PATH_BOLD = "IRAN Sans Bold.ttf";
     private static Typeface defaultFont = null;
@@ -37,5 +38,11 @@ public class FontHelper {
         for (TextView view : views) {
             view.setTypeface(typeface);
         }
+    }
+
+    public static Typeface getIcons(Context context) {
+        if (menu == null)
+            menu = Typeface.createFromAsset(context.getAssets(), FONT_MENU_NAME);
+        return menu;
     }
 }
