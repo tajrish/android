@@ -6,14 +6,14 @@ import java.util.List;
 /**
  * Created by root on 12/17/15.
  */
-public class CategoryModel {
+public class Category {
 
-    private static List<CategoryModel> categoryList;
+    private static List<Category> categoryList;
     private int id;
     private String title;
     private int imageResourceId;
 
-    public static List<CategoryModel> getCategoryList(){
+    public static List<Category> getCategoryList(){
         if(categoryList == null){
             initializeCategoryList();
         }
@@ -49,15 +49,15 @@ public class CategoryModel {
 
         categoryList = new ArrayList<>();
 
-        CategoryModel category1 = new CategoryModel();
-        CategoryModel category2 = new CategoryModel();
-        CategoryModel category3 = new CategoryModel();
-        CategoryModel category4 = new CategoryModel();
-        CategoryModel category5 = new CategoryModel();
-        CategoryModel category6 = new CategoryModel();
-        CategoryModel category7 = new CategoryModel();
-        CategoryModel category8 = new CategoryModel();
-        CategoryModel category9 = new CategoryModel();
+        Category category1 = new Category();
+        Category category2 = new Category();
+        Category category3 = new Category();
+        Category category4 = new Category();
+        Category category5 = new Category();
+        Category category6 = new Category();
+        Category category7 = new Category();
+        Category category8 = new Category();
+        Category category9 = new Category();
 
         category1.setTitle("مرکز خرید");
         category1.setId(1);
@@ -78,5 +78,15 @@ public class CategoryModel {
         category8.setId(8);
         category9.setTitle("زیارتی");
         category9.setId(9);
+
+        categoryList.add(category1);
+        categoryList.add(category2);
+        categoryList.add(category3);
+        categoryList.add(category4);
+        categoryList.add(category5);
+        categoryList.add(category6);
+        categoryList.add(category7);
+        categoryList.add(category8);
+        categoryList.add(category9);
     }
 }

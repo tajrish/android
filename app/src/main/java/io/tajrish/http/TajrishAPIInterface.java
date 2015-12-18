@@ -1,11 +1,8 @@
 package io.tajrish.http;
 
-import java.util.List;
-
-import io.tajrish.models.HomeScreenModel;
+import io.tajrish.models.HomeScreen;
 import retrofit.Callback;
 import retrofit.http.GET;
-import retrofit.http.POST;
 import retrofit.http.Path;
 
 /**
@@ -19,7 +16,7 @@ public interface TajrishAPIInterface {
     */
 
     @GET("/users/{user_id}/provinces")
-    void getProvinces(@Path("user_id") String userId, Callback<HomeScreenModel> homeScreenModelCallback);
+    void getProvinces(@Path("user_id") String userId, Callback<HomeScreen> homeScreenModelCallback);
 
     /*@POST("/blog/users/{user_id}")
     void getBlog(@Path("user_id") String userId, Callback<List<BlogItem>> blogItemCallback);*/

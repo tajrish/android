@@ -28,6 +28,7 @@ public class MyPagerAdapter extends PagerAdapter {
     public Object instantiateItem(final ViewGroup container, int position) {
         ImageView image = new ImageView(container.getContext());
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        image.setScaleType(ImageView.ScaleType.CENTER_CROP);
         image.setLayoutParams(params);
 
         int[] pics = new int[5];

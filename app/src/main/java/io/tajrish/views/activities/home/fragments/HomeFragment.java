@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.tajrish.R;
-import io.tajrish.models.ProvinceModel;
+import io.tajrish.models.Province;
 import io.tajrish.views.adapters.ProvinceAdapter;
 
 /**
@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void configure() {
-        ProvinceAdapter adapter = new ProvinceAdapter(getActivity(), R.layout.province_in_grid_template, R.id.title, ProvinceModel.getProvinceList());
+        ProvinceAdapter adapter = new ProvinceAdapter(getActivity(), R.layout.province_in_grid_template, R.id.title, Province.getProvinceList());
         gridView.setAdapter(adapter);
     }
 

@@ -14,22 +14,22 @@ import java.util.List;
 import java.util.zip.Inflater;
 
 import io.tajrish.R;
-import io.tajrish.models.ProvinceModel;
+import io.tajrish.models.Province;
 import io.tajrish.views.custom.FFTextView;
 
 /**
  * Created by mehdiii on 12/18/15.
  */
-public class ProvinceAdapter extends ArrayAdapter<ProvinceModel> {
+public class ProvinceAdapter extends ArrayAdapter<Province> {
 
-    List<ProvinceModel> items;
+    List<Province> items;
 
-    public ProvinceAdapter(Context context, int resource, int textViewResourceId, List<ProvinceModel> objects) {
+    public ProvinceAdapter(Context context, int resource, int textViewResourceId, List<Province> objects) {
         super(context, resource, textViewResourceId, objects);
         items = objects;
     }
 
-    private void initViews(ProvinceModel province, ViewHolder holder) {
+    private void initViews(Province province, ViewHolder holder) {
         holder.title.setText(province.getTitle());
         holder.stars.setImageResource(R.drawable.star);
         holder.icon.setImageResource(R.drawable.delete_button);
