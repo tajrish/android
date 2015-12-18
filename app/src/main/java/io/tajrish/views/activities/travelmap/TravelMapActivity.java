@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Display;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -21,19 +22,26 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 import com.google.maps.android.ui.IconGenerator;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import io.tajrish.R;
-import io.tajrish.models.ProvinceModel;
+import io.tajrish.models.Pin;
+import io.tajrish.models.Province;
 import io.tajrish.views.activities.BaseActivity;
 
 /**
  * Created by root on 12/18/15.
  */
-public class TravelMapActivity extends BaseActivity{
+public class TravelMapActivity extends BaseActivity {
 
     private GoogleMap mGoogleMap;
     private double mLongitude;
     private double mLatitude;
-    private ProvinceModel mProvince;
+    private Province mProvince;
+    private ArrayList<Marker> markers = new ArrayList<>();
+    private Map<Marker, Integer> markersMap = new HashMap();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +61,14 @@ public class TravelMapActivity extends BaseActivity{
     private void getJsonInformationFromIntent() {
         Intent intent = getIntent();
         String json = intent.getStringExtra(PACKAGE_NAME + ": province");
-        if(json == null){
+        if (json == null) {
             Gson gson = new Gson();
-            json = gson.toJson(ProvinceModel.getProvinceList().get(1));
+            json = gson.toJson(Province.getProvinceList().get(0));
+            Log.d(PACKAGE_NAME, json);
         }
         mLatitude = intent.getDoubleExtra(PACKAGE_NAME + ": latitude", 32.420654);
         mLongitude = intent.getDoubleExtra(PACKAGE_NAME + ": longitude", 53.682362);
-        mProvince = new Gson().fromJson(json, ProvinceModel.class);
+        mProvince = new Gson().fromJson(json, Province.class);
     }
 
     /**
@@ -98,66 +107,34 @@ public class TravelMapActivity extends BaseActivity{
      * This should only be called once and when we are sure that {@link #mGoogleMap} is not null.
      */
     private void setUpMap() {
-        /*markers.clear();
+        markers.clear();
 
-        for (int i = 0; i < offerList.length; i++) {
-            Offer offer = offerList[i];
+        for (int i = 0; i < mProvince.getPinList().size(); i++) {
+            Pin pin = mProvince.getPinList().get(i);
             IconGenerator factory = new IconGenerator(this);
             factory.setBackground(getResources().getDrawable(R.drawable.pin_empty));
-            TextView textView = new TextView(this);
+            /*TextView textView = new TextView(this);
             textView.setText("%" + offer.getMaxPercentage());
             textView.setPadding(15, 15, 0, 0);
             textView.setTextColor(Color.WHITE);
             textView.setTypeface(FontHelper.getDefaultTypeface(this));
-            factory.setContentView(textView);
+            factory.setContentView(textView);*/
             Bitmap icon = factory.makeIcon();
             Marker marker = mGoogleMap.addMarker(
                     new MarkerOptions().position(
                             new LatLng(
-                                    offer.getStore().getLatitude(),
-                                    offer.getStore().getLongitude()))
+                                    pin.getLatitude(),
+                                    pin.getLongitude()))
                             .icon(BitmapDescriptorFactory.fromBitmap(icon)));
             markers.add(marker);
             markersMap.put(marker, i);
         }
 
-        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (Marker marker : markers) {
-            builder.include(marker.getPosition());
-        }
-
-        *//*LatLngBounds bounds = builder.build();*//*
-
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        final int width = size.x;
-        final int height = size.y;
-
-        int padding = 50; // offset from edges of the map in pixels
-        *//*CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, width, height, padding);
-        mGoogleMap.moveCamera(cu);*//*
-        mGoogleMap.setMyLocationEnabled(true);
-        if(offerList.length > 0) {
-            Log.d(PACKAGE_NAME, offerList[0].getStore().getLatitude() + " " + offerList[0].getStore().getLongitude());
-            mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                    new LatLng(
-                            offerList[0].getStore().getLatitude(),
-                            offerList[0].getStore().getLongitude()), 15));
-            mViewPagerOffer.setMaxHeight(200);
-        }
-        else {
-            mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                            new LatLng(
-                                    latitude,
-                                    longitude
-                            ), 15)
-            );
-            *//*mViewPagerOffer.setMaxHeight(0);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,60);
-            layoutParams.setMargins(0, 0, 0, 0);
-            mLinearLayoutResults.setLayoutParams(layoutParams);*//*
-        }*/
+        mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+                        new LatLng(
+                                mProvince.getLatitude(),
+                                mProvince.getLongitude()
+                        ), 15)
+        );
     }
 }
