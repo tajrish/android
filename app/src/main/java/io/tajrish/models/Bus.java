@@ -3,7 +3,7 @@ package io.tajrish.models;
 /**
  * Created by root on 12/17/15.
  */
-public class BusModel {
+public class Bus {
 
     private String company;
     private String sourceCity;
