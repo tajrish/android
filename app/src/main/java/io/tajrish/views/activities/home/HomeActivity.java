@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.tajrish.R;
+import io.tajrish.models.ProvinceModel;
 import io.tajrish.views.activities.BaseActivity;
+import io.tajrish.views.adapters.ProvinceAdapter;
 
 /**
  * Created by mehdiii on 12/17/15.
@@ -38,7 +40,7 @@ public class HomeActivity extends BaseActivity {
         all.add("ccc");
         all.add("ddd");
 
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.province_in_grid_template, R.id.title, all);
+        ProvinceAdapter adapter = new ProvinceAdapter(this, R.layout.province_in_grid_template, R.id.title, ProvinceModel.getProvinceList());
         gridView.setAdapter(adapter);
     }
 
