@@ -11,6 +11,7 @@ import android.view.Display;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -29,11 +30,10 @@ import com.google.maps.android.ui.IconGenerator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import github.chenupt.dragtoplayout.DragTopLayout;
 import io.tajrish.R;
 import io.tajrish.models.Pin;
 import io.tajrish.models.Province;
+import io.tajrish.utils.FormatHelper;
 import io.tajrish.views.activities.BaseActivity;
 
 /**
@@ -49,6 +49,10 @@ public class TravelMapActivity extends BaseActivity {
     private Map<Marker, Integer> markersMap = new HashMap();
 
     private FrameLayout mExpander;
+    private TextView mTip;
+    private TextView mTotal;
+    private TextView mPassed;
+    private ProgressBar mProgress;
     private ImageView mBackpack;
     private boolean isOpen = true;
     private int mHeight;
@@ -67,13 +71,26 @@ public class TravelMapActivity extends BaseActivity {
         getJsonInformationFromIntent();
         setUpMapIfNeeded();
         findViewsById();
+        initializeData();
         getScreenHeight();
         setOnClickListeners();
+    }
+
+    private void initializeData() {
+        mProgress.setProgress(mProvince.getProgress());
+        mTotal.setText(FormatHelper.toPersianNumber(mProvince.getPinList().size() + ""));
+        int total = mProvince.getPinList().size()*mProvince.getProgress()/100;
+        mPassed.setText(FormatHelper.toPersianNumber(total+""));
+        mTip.setText(mProvince.getTips());
     }
 
     private void findViewsById() {
         mBackpack = (ImageView) findViewById(R.id.travel_backpack);
         mExpander = (FrameLayout) findViewById(R.id.travel_expander);
+        mTip = (TextView) findViewById(R.id.travel_tip);
+        mTotal = (TextView) findViewById(R.id.travel_total);
+        mPassed = (TextView) findViewById(R.id.travel_done);
+        mProgress = (ProgressBar) findViewById(R.id.travel_progress);
     }
 
     private void getScreenHeight() {
